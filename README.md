@@ -13,6 +13,6 @@ an app that uses a civic information API to gather information about current rep
 ##### api call:
 > GET https://www.googleapis.com/civicinfo/v2/representatives  
 ##### example:
-> 'https://www.googleapis.com/civicinfo/v2/representatives?address=408%20E%20Main%20ST.%20Norfolk%20Ne&key=[YOUR_API_KEY]'  
+> 'https://www.googleapis.com/civicinfo/v2/representatives?address=010%20N%20Oak%20ST.%20DingDo%20AL&key=[YOUR_API_KEY]'  
 
 
