@@ -2,7 +2,8 @@ class user {
     constructor() {
         this.state = "";
         this.zipCode = "";
-        this.userName = "";
+        this.street = "";
+
     }
 }
 
@@ -10,14 +11,16 @@ var usrInfo = new user;
 
 usrInfo.zipCode = prompt("Enter Zip: ");
 
+
 // format strings
 
-var key = "fizzbuzz";
+var key = "foobuzz";
 
 // figure out this electionID situation
-var electionId = '4795';
+var electionId = '4797';
 
 var address = usrInfo.zipCode;
+
 
 const reprUrl = `https://www.googleapis.com/civicinfo/v2/representatives?address=${address}&key=${key}`;
 const viqUrl = `https://www.googleapis.com/civicinfo/v2/voterinfo?address=${address}&key=${key}&electionId=${electionId}`;
@@ -26,9 +29,6 @@ const electionUrl = `https://www.googleapis.com/civicinfo/v2/elections?address=$
 var reprData;
 var viData;
 var electionData;
-
-
-
 
 class representative {
     constructor( ) {
@@ -82,7 +82,7 @@ fetch(electionUrl)
     })
 
 
-// voter info query
+// voter info query with ID from election query ^
 
 fetch(viqUrl)
     .then(response => {
@@ -102,7 +102,7 @@ fetch(viqUrl)
             Info.electionDay = viData.election.electionDay;
             Info.id = viData.election.id;
 
-        console.log("The Election is " + Info.name + " " + Info.id +"\n");
+        console.log("The Election is the " + Info.name + " " + Info.id +"\n");
         console.log("Election day is on " + Info.electionDay);
        
     })
