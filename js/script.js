@@ -1,31 +1,34 @@
-// node stuffs
+class user {
+    constructor() {
+        this.state = "";
+        this.zipCode = "";
+        this.userName = "";
+    }
+}
 
-// var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-// var request = require("request");
-// const fetch = require("node-fetch");
+var usrInfo = new user;
 
+usrInfo.zipCode = prompt("Enter Zip: ");
 
-// const xhr = new XMLHttpRequest();
+// format strings
 
-// append url params + 
+var key = "fizzbuzz";
 
-var key = "";
+// figure out this electionID situation
+var electionId = '4795';
 
-const reprUrl = '';
-const viqUrl = '';
-const electionUrl = '';
+var address = usrInfo.zipCode;
+
+const reprUrl = `https://www.googleapis.com/civicinfo/v2/representatives?address=${address}&key=${key}`;
+const viqUrl = `https://www.googleapis.com/civicinfo/v2/voterinfo?address=${address}&key=${key}&electionId=${electionId}`;
+const electionUrl = `https://www.googleapis.com/civicinfo/v2/elections?address=${address}&key=${key}`;
 
 var reprData;
 var viData;
 var electionData;
 
-class user {
-    constructor() {
-        this.stateName = "";
-        this.zipCode = "";
-        this.userName = "";
-    }
-}
+
+
 
 class representative {
     constructor( ) {
@@ -139,7 +142,7 @@ fetch(reprUrl)
             repr.urls = reprData.officials[i].urls;
             repr.photoUrl = reprData.officials[i].photoUrl;
 
-            console.log(repr.name + " " + repr.party + " \n" + repr.phone + " \n"+ repr.urls[0]);
+            console.log(repr.name + ": " + repr.party + " \n" + repr.phone + " \n"+ repr.urls[0]);
             
             continue;
         }
