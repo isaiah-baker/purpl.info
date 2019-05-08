@@ -14,7 +14,7 @@ usrInfo.zipCode = prompt("Enter Zip: ");
 
 // format strings
 
-var key = "";
+var key = "asdf";
 
 // figure out this electionID situation
 var electionId = '4797';
@@ -76,7 +76,7 @@ fetch(electionUrl)
 
         header = document.createElement("h1");
         header.innerHTML = "Elections";
-        document.getElementById("repr").appendChild(header);
+        document.getElementById("elections").appendChild(header);
 
         for(var i = 0; i < electionData.elections.length; i++)
         {
@@ -84,7 +84,7 @@ fetch(electionUrl)
             " \nID: " + electionData.elections[i].id);
 
             para = document.createElement("p");
-            para.innerHTML = electionData.elections[i].name;
+            para.innerHTML = electionData.elections[i].name + ": " + electionData.elections[i].id;
             document.getElementById("elections").appendChild(para);
         }
 
@@ -139,6 +139,10 @@ fetch(reprUrl)
         console.log("Fetched representative data: ")
         console.log("------------------------------");
         console.log(reprData);
+
+        header = document.createElement("h1");
+        header.innerHTML = "Representatives";
+        document.getElementById("repr").appendChild(header);
         
 
 
@@ -156,6 +160,9 @@ fetch(reprUrl)
             repr.photoUrl = reprData.officials[i].photoUrl;
 
             console.log(repr.name + ": " + repr.party + " \n" + repr.phone + " \n"+ repr.urls[0]);
+            para = document.createElement("p");
+            para.innerHTML = repr.name + ": " + repr.party + " \n" + repr.phone + " \n"+ repr.urls[0];
+            document.getElementById("repr").appendChild(para);
             
             continue;
         }
