@@ -14,7 +14,7 @@ usrInfo.zipCode = prompt("Enter Zip: ");
 
 // format strings
 
-var key = "AIzaSyCByy00E4Mt7ILG8i4jhya9ERd6IpkRhRU";
+var key = "";
 
 // figure out this electionID situation
 var electionId = '4797';
