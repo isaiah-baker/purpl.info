@@ -14,7 +14,7 @@ usrInfo.zipCode = prompt("Enter Zip: ");
 
 // format strings
 
-var key = "foobuzz";
+var key = "AIzaSyCByy00E4Mt7ILG8i4jhya9ERd6IpkRhRU";
 
 // figure out this electionID situation
 var electionId = '4797';
@@ -40,6 +40,11 @@ class representative {
     }
 }
 
+// var reprDiv = document.getElementById("repr");
+
+// var para = document.createElement("P");
+
+// var t;
 class voterInfo {
     constructor() {
         this.id = "";
@@ -69,10 +74,18 @@ fetch(electionUrl)
         console.log("------------------------------");
         console.log(electionData);
 
+        header = document.createElement("h1");
+        header.innerHTML = "Elections";
+        document.getElementById("repr").appendChild(header);
+
         for(var i = 0; i < electionData.elections.length; i++)
         {
             console.log("Election: " + electionData.elections[i].name +
-            " \nID: " + electionData.elections[i].id)
+            " \nID: " + electionData.elections[i].id);
+
+            para = document.createElement("p");
+            para.innerHTML = electionData.elections[i].name;
+            document.getElementById("elections").appendChild(para);
         }
 
     })
