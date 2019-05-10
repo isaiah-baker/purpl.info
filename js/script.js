@@ -13,12 +13,10 @@ usrInfo.zipCode = prompt("Enter Zip: ");
 
 
 // format strings
-
-var key = "asdf";
+var key = "-0";
 
 // figure out this electionID situation
 var electionId = '4797';
-
 var address = usrInfo.zipCode;
 
 
@@ -114,9 +112,11 @@ fetch(viqUrl)
             Info.name = viData.election.name;
             Info.electionDay = viData.election.electionDay;
             Info.id = viData.election.id;
+            Info.poll = viData.state[0].electionAdministrationBody.ballotInfoUrl;
 
         console.log("The Election is the " + Info.name + " " + Info.id +"\n");
         console.log("Election day is on " + Info.electionDay);
+        console.log(Info.poll);
        
     })
     .catch(err => {
